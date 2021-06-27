@@ -1,0 +1,230 @@
+@font-face {
+  font-family: font;
+  src: url(./starjout/Starjhol.ttf);
+}
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@10&display=swap");
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+.bg-image {
+  z-index: -1;
+  background-image: url("./Photos/wallpapersden.com_scifi-astronaut-space-mars_2560x1440.jpg");
+  background-repeat: no-repeat;
+  background-size: 1280px 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-family: font;
+  text-align: center;
+  font-size: x-large;
+}
+
+/* width aur heingth 0 */
+.overlay {
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  transition-delay: 50ms;
+}
+.a {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  transition-delay: 50ms;
+}
+/* opacity = 0  */
+.btn-cont {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition-delay: 50ms;
+}
+.btn-rover {
+  align-items: baseline;
+  /* position: absolute; */
+  /* display: inline-block; */
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-border-radius: 27;
+  -moz-border-radius: 27;
+  border-radius: 27px;
+  text-shadow: 11px 3px 4px #666666;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 0px;
+  padding: 16px 20px 10px 20px;
+  border: solid #181a1b 2px;
+  text-decoration: none;
+  height: 70%;
+  width: 20%;
+  box-shadow: rgb(0, 0, 0) 0px 10px 40px 2px;
+  transition-duration: 100ms;
+}
+.one {
+  background-image: url("https://mars-photos.herokuapp.com/explore/images/Spirit_rover.jpg");
+  /* margin: 90px 20px 10px 5%; */
+}
+.btn-rover:hover {
+  transform: scale(1.2);
+  filter: blur(0.1px);
+  -webkit-filter: blur(0.2px);
+  z-index: 4;
+  font-size: 30px;
+}
+.two {
+  background-image: url("https://mars-photos.herokuapp.com/explore/images/Opportunity_rover.jpg");
+  /* margin: 90px 20px 20px 38%; */
+}
+.four {
+  background-image: url("https://mars-photos.herokuapp.com/explore/images/Perseverance_rover.jpg");
+  /* margin: 90px 20px 20px 38%; */
+}
+.three {
+  background-image: url("https://mars-photos.herokuapp.com/explore/images/Curiosity_rover.jpg");
+  /* margin: 90px 40px 20px 70%; */
+}
+.launch {
+  height: 100px;
+  width: 100px;
+  opacity: 65%;
+  margin: 0;
+  transition-duration: 20ms;
+  transition-delay: 10ms;
+}
+.launch:hover {
+  transform: scale(1.2);
+  opacity: 100%;
+  background-color: rgb(46, 46, 116);
+  box-shadow: 0 0 10px rgb(4, 158, 247);
+  border-radius: 10px;
+}
+.small {
+  height: 30px;
+  background-color: rgb(46, 46, 116);
+  border-radius: 4px;
+  width: 30px;
+}
+.card {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  height: 23rem;
+  width: 27rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(10, 10, 39),
+    rgb(26, 26, 131),
+    rgb(10, 10, 39)
+  );
+  margin-top: 7rem;
+  border-radius: 2rem;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 00px 20px rgb(2, 3, 26);
+}
+.sol-text {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: font;
+  margin: 0;
+  text-shadow: 4px 4px 20px #f70404;
+}
+.btn-next {
+  width: 100px;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: larger;
+  border-radius: 10px;
+  transition-delay: 10ms;
+  transition-duration: 20ms;
+  background-color: rgb(198, 198, 236);
+  padding: 4px;
+}
+.btn-next:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgb(0, 0, 255);
+}
+.inp {
+  height: 30px;
+  width: 80px;
+  border-radius: 10px;
+  background-color: rgb(60, 60, 105);
+}
+.c-1 {
+  z-index: 1;
+  transition-delay: 50ms;
+  transition-duration: 500ms;
+}
+.c-2 {
+  z-index: 2;
+  transition-delay: 50ms;
+  transition-duration: 500ms;
+}
+.rover-cam {
+  width: 200px;
+}
+.inv {
+  z-index: -2;
+  opacity: 0;
+  transform: translateX();
+}
+.info {
+  height: 30px;
+  width: 30px;
+}
+.above {
+  display: flex;
+  z-index: -5;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img-rov {
+  position: absolute;
+  height: 90%;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 50px black;
+}
+.rov-info {
+  /* position: absolute; */
+  background-color: #181a1b;
+  width: 80%;
+  /* height: 0%; */
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  transition-delay: 50ms;
+  text-align: center;
+}
+.txt {
+  color: white;
+  font-family: "Big Shoulders Stencil Display", cursive;
+}
