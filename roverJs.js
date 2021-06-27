@@ -162,6 +162,7 @@ btnSol.addEventListener("click", () => {
         <h3 class="txt">LANDING DATE : ${roverInfo.landing_date}</h3>
         <h3 class="txt">LAUNCH DATE : ${roverInfo.launch_date}</h3>
         <h2 class="txt">MAX SOL : ${roverInfo.max_sol}</h2>
+        <h2 class="txt">!CLICK HERE!</h2>
   `
   );
 });
