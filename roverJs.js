@@ -203,6 +203,11 @@ btnSol.addEventListener("click", () => {
   `
   );
 });
+
+const crtRan = (max) => {
+  return Math.trunc(Math.random() * max);
+};
+
 rovInfo.addEventListener("click", function () {
   // console.log(images);
   overlay.classList.remove("inv");
@@ -212,32 +217,40 @@ rovInfo.addEventListener("click", function () {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${latestSpirit[0].img_src}" >`
+        <img class="img-rov" src="${
+          latestSpirit[crtRan(latestSpirit.length)].img_src
+        }" >`
       );
     } else if (userRover === "perseverance") {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${latestPer[0].img_src}" >`
+        <img class="img-rov" src="${
+          latestPer[crtRan(latestPer.length)].img_src
+        }" >`
       );
     } else if (userRover === "opportunity") {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${latestOppor[0].img_src}" >`
+        <img class="img-rov" src="${
+          latestOppor[crtRan(latestOppor.length)].img_src
+        }" >`
       );
     } else {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${latestCur[0].img_src}" >`
+        <img class="img-rov" src="${
+          latestCur[crtRan(latestCur.length)].img_src
+        }" >`
       );
     }
   } else {
     above.insertAdjacentHTML(
       "afterbegin",
       `
-      <img class="img-rov" src="${images[0].img_src}" >`
+      <img class="img-rov" src="${images[crtRan(images.length)].img_src}" >`
     );
   }
 });
