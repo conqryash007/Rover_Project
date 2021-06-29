@@ -25,7 +25,10 @@ launch?.addEventListener("click", function () {
   btnCont.style.opacity = 100;
   btnCont.style.zIndex = 2;
 });
-
+let latestSpirit;
+let latestOppor;
+let latestCur;
+let latestPer;
 let userRover;
 let url;
 let finalUrl;
@@ -34,6 +37,40 @@ let latestImg;
 let sol;
 let roverInfo;
 let optSelect = ``;
+
+fetch(`https://mars-photos.herokuapp.com/api/v1/rovers/spirit/latest_photos`)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    latestSpirit = data.latest_photos;
+  });
+fetch(
+  `https://mars-photos.herokuapp.com/api/v1/rovers/opportunity/latest_photos`
+)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    latestOppor = data.latest_photos;
+  });
+fetch(`https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/latest_photos`)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    latestCur = data.latest_photos;
+  });
+fetch(
+  `https://mars-photos.herokuapp.com/api/v1/rovers/perseverance/latest_photos`
+)
+  .then(function (res) {
+    return res.json();
+  })
+  .then(function (data) {
+    latestPer = data.latest_photos;
+  });
+
 roverClicked.forEach((a) => {
   a.addEventListener("click", function () {
     userRover = a.value;
@@ -162,7 +199,7 @@ btnSol.addEventListener("click", () => {
         <h3 class="txt">LANDING DATE : ${roverInfo.landing_date}</h3>
         <h3 class="txt">LAUNCH DATE : ${roverInfo.launch_date}</h3>
         <h2 class="txt">MAX SOL : ${roverInfo.max_sol}</h2>
-        <h2 class="txt">!CLICK HERE!</h2>
+        <h1 class="txt">!!CLICK HERE!!</h1>
   `
   );
 });
@@ -170,9 +207,37 @@ rovInfo.addEventListener("click", function () {
   // console.log(images);
   overlay.classList.remove("inv");
   rovInfo.classList.add("inv");
-  above.insertAdjacentHTML(
-    "afterbegin",
-    `
+  if (images.length == 0) {
+    if (userRover === "spirit") {
+      above.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <img class="img-rov" src="${latestSpirit[0].img_src}" >`
+      );
+    } else if (userRover === "perseverance") {
+      above.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <img class="img-rov" src="${latestPer[0].img_src}" >`
+      );
+    } else if (userRover === "opportunity") {
+      above.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <img class="img-rov" src="${latestOppor[0].img_src}" >`
+      );
+    } else {
+      above.insertAdjacentHTML(
+        "afterbegin",
+        `
+        <img class="img-rov" src="${latestCur[0].img_src}" >`
+      );
+    }
+  } else {
+    above.insertAdjacentHTML(
+      "afterbegin",
+      `
       <img class="img-rov" src="${images[0].img_src}" >`
-  );
+    );
+  }
 });
