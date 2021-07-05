@@ -254,3 +254,8 @@ rovInfo.addEventListener("click", function () {
     );
   }
 });
+
+document.querySelector(
+  ".bg-image"
+).style.backgroundSize = `${window.innerWidth}px ${window.innerHeight}px`;
+
