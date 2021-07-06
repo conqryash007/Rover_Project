@@ -212,7 +212,7 @@ body {
   height: 90%;
   width: 90%;
   text-align: center;
-  box-shadow: 0 0 50px black;
+  /* box-shadow: 0 0 50px black; */
 }
 .rov-info {
   /* position: absolute; */
@@ -227,4 +227,46 @@ body {
 .txt {
   color: white;
   font-family: "Big Shoulders Stencil Display", cursive;
+}
+.btn-pic {
+  position: absolute;
+  margin-top: 30rem;
+  background: #144f8d;
+  background-image: -webkit-linear-gradient(top, #144f8d, #244e91);
+  background-image: -moz-linear-gradient(top, #144f8d, #244e91);
+  background-image: -ms-linear-gradient(top, #144f8d, #244e91);
+  background-image: -o-linear-gradient(top, #144f8d, #244e91);
+  background-image: -webkit-gradient(to bottom, #144f8d, #244e91);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: Times New Roman;
+  font-size: 35px;
+  font-weight: 300;
+  padding: 5px;
+  -webkit-box-shadow: 1px 1px 20px 0 #000000;
+  -moz-box-shadow: 1px 1px 20px 0 #000000;
+  box-shadow: 1px 1px 20px 0 #000000;
+  text-shadow: -5px 4px 8px #000000;
+  border: solid #337fed 1px;
+  text-decoration: none;
+  display: none;
+  z-index: 15;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-pic:hover {
+  border: solid #0c2f61 1px;
+  background: #0b254e;
+  background-image: -webkit-linear-gradient(top, #1e62d0, #0f427c);
+  background-image: -moz-linear-gradient(top, #1e62d0, #124580);
+  background-image: -ms-linear-gradient(top, #1e62d0, #061e3a);
+  background-image: -o-linear-gradient(top, #1e62d0, #0e3058);
+  background-image: -webkit-gradient(to bottom, #1e62d0, #08213d);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-decoration: none;
 }
