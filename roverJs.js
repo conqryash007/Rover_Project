@@ -254,6 +254,7 @@ document.querySelector(
 ).style.backgroundSize = `${window.innerWidth}px ${window.innerHeight}px`;
 let i = 0;
 btnPics.addEventListener("click", function () {
+  btnPics.textContent = "NEXT";
   if (images.length == 0) {
     if (userRover === "spirit") {
       if (i > latestSpirit.length - 1) {
