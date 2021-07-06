@@ -16,7 +16,7 @@ const inpSol = document.querySelector(".inpSol");
 const info = document.querySelector(".info");
 const above = document.querySelector(".above");
 const rovInfo = document.querySelector(".rov-info");
-
+const btnPics = document.querySelector(".btn-pic");
 //-------------launch button pressed--------//
 launch?.addEventListener("click", function () {
   text.style.zIndex = 0;
@@ -166,7 +166,8 @@ btnSol.addEventListener("click", () => {
   card1.classList.add("inv");
   cam = camInp.value;
   sol = inpSol.value;
-  finalUrl = `https://mars-photos.herokuapp.com/api/v1/rovers/${userRover}/photos?sol=${sol}&camera=${cam}`;
+  finalUrl = `https://mars-photos.herokuapp.com/api/v1/rovers/${userRover}/photos?sol=${sol}`;
+  // &camera=${cam}
   fetch(finalUrl)
     .then(function (res) {
       return res.json();
@@ -210,6 +211,7 @@ const crtRan = (max) => {
 
 rovInfo.addEventListener("click", function () {
   // console.log(images);
+  btnPics.style.display = "inline-block";
   overlay.classList.remove("inv");
   rovInfo.classList.add("inv");
   if (images.length == 0) {
@@ -217,40 +219,32 @@ rovInfo.addEventListener("click", function () {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${
-          latestSpirit[crtRan(latestSpirit.length)].img_src
-        }" >`
+        <img class="img-rov" src="${latestSpirit[0].img_src}" >`
       );
     } else if (userRover === "perseverance") {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${
-          latestPer[crtRan(latestPer.length)].img_src
-        }" >`
+        <img class="img-rov" src="${latestPer[0].img_src}" >`
       );
     } else if (userRover === "opportunity") {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${
-          latestOppor[crtRan(latestOppor.length)].img_src
-        }" >`
+        <img class="img-rov" src="${latestOppor[0].img_src}" >`
       );
     } else {
       above.insertAdjacentHTML(
         "afterbegin",
         `
-        <img class="img-rov" src="${
-          latestCur[crtRan(latestCur.length)].img_src
-        }" >`
+        <img class="img-rov" src="${latestCur[0].img_src}" >`
       );
     }
   } else {
     above.insertAdjacentHTML(
       "afterbegin",
       `
-      <img class="img-rov" src="${images[crtRan(images.length)].img_src}" >`
+      <img class="img-rov" src="${images[0].img_src}" >`
     );
   }
 });
@@ -258,4 +252,64 @@ rovInfo.addEventListener("click", function () {
 document.querySelector(
   ".bg-image"
 ).style.backgroundSize = `${window.innerWidth}px ${window.innerHeight}px`;
-
+let i = 0;
+btnPics.addEventListener("click", function () {
+  if (images.length == 0) {
+    if (userRover === "spirit") {
+      if (i > latestSpirit.length - 1) {
+        i = 0;
+      } else {
+        i++;
+      }
+      above.insertAdjacentHTML(
+        "beforeend",
+        `
+        <img class="img-rov" src="${latestSpirit[i].img_src}" >`
+      );
+    } else if (userRover === "perseverance") {
+      if (i > latestPer.length - 1) {
+        i = 0;
+      } else {
+        i++;
+      }
+      above.insertAdjacentHTML(
+        "beforeend",
+        `
+        <img class="img-rov" src="${latestPer[i].img_src}" >`
+      );
+    } else if (userRover === "opportunity") {
+      if (i > latestOppor.length - 1) {
+        i = 0;
+      } else {
+        i++;
+      }
+      above.insertAdjacentHTML(
+        "beforeend",
+        `
+        <img class="img-rov" src="${latestOppor[i].img_src}" >`
+      );
+    } else {
+      if (i > latestCur.length - 1) {
+        i = 0;
+      } else {
+        i++;
+      }
+      above.insertAdjacentHTML(
+        "beforeend",
+        `
+        <img class="img-rov" src="${latestCur[i].img_src}" >`
+      );
+    }
+  } else {
+    if (i > images.length - 1) {
+      i = 0;
+    } else {
+      i++;
+    }
+    above.insertAdjacentHTML(
+      "beforeend",
+      `
+      <img class="img-rov" src="${images[i].img_src}" >`
+    );
+  }
+});
