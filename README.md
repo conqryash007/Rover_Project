@@ -1,5 +1,5 @@
 # Rover_Project
-This project lets the user to get images of different mars rovers send by NASA using it's API.
+This project lets the user to get images from the different mars rovers send by NASA.
 
 P.s - Open in laptop/desktop for best experience
 
