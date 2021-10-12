@@ -1,6 +1,3 @@
-// const roverOne = document.querySelector(".one");
-// const roverTwo = document.querySelector(".two");
-// const roverThree = document.querySelector(".three");
 const launch = document.querySelector(".launch");
 const text = document.querySelector(".text");
 const roverClicked = document.querySelectorAll(".btn-rover");
